@@ -173,13 +173,21 @@ function creerListeDictionnaire() {
  
 }
  
-function rendreVisible(elem){
-	document.getElementById(elem).style.display='block';
+function rendreVisible(id){
+	document.getElementById(id).style.display='block';
 }
 
- function rendreInvisible(elem){
-	document.getElementById(elem).style.display='none';
-}	
+// function Visible(classe) {
+	// document.getElementsByClassName(classe).style.display='block';
+// }
+
+ function rendreInvisible(id){
+	document.getElementById(id).style.display='none';
+}
+
+// function cacher(id) {
+	// document.getElementById(id).style.visibility='hidden';
+// }	
 
 function creerElementsListes() {
 	var listeAge = document.getElementById("age");

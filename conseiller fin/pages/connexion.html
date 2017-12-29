@@ -15,31 +15,87 @@
 	</head>
 	<body>
 		<h2 class="tabInscription">Connexion</h2>
+		<p class="tabInscription">
+			<a href="#" onClick="rendreVisible('formConnexion');rendreVisible('administrateur');">Administrateur</a>
+		</p>
+		<p class="tabInscription">
+			<a href="#" onClick="rendreVisible('formConnexion');rendreInvisible('administrateur');">Client</a>
+		</p>		
+		<br>
 		<p class="tabInscription"><span id="error" class="erreur"></span></p>
 		<hr>
 		<br>
-		<form action="../serveur/confirmerClients.php" method="post" onSubmit="return validerConnexion();">  
-		  
-		  <table class="tabInscription">
-				<tr>
-					<td><label for="courriel">Courriel:</label></td>
-					<td><input type="text" id="courriel" name="couriel" value=""></td>
-					<td><span id="courrielError" class="erreur"></span></td>
-			    </tr>
-				<tr><td><br></td><td><br></td><td><br></td></tr>
-				<tr>
-					<td><label for="mPasse">Mot de passe:&nbsp;&nbsp;</label></td>
-					<td><input type="password" id="mPasse" name="mPasse" value=""></td>
-					<td><span id="mdpError" class="erreur"></span></td>
-			    </tr>
-				<tr><td><br></td><td><br></td><td><br></td></tr>
-				<tr>				
-					<td><input type="submit" name="submit" value="Envoyer"></td>
-					<td><input type="reset" id="recommencer" value="Recommencer" onClick="resseterError();"></td>
-					<td></td>
-				</tr>		    
-		   </table>
-		</form>
+		<div id="formConnexion">
+			<form action="../serveur/confirmerClients.php" method="post" onSubmit="return validerConnexion();">  
+			  
+			  <div class="container-fluid" class="tabInscription">
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="courriel">Courriel:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="text" id="courriel" name="couriel" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="courrielError" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="mPasse">Mot de passe:&nbsp;&nbsp;</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+									<input type="password" id="mPasse" name="mPasse" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+									<span id="mdpError" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row" id="administrateur">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="cleAdmin">Clé administrateur:&nbsp;&nbsp;</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+									<input type="password" id="cleAdmin" name="cleAdmin" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+									<span class="erreur">Entrez votre clé</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+									<input type="submit" name="submit" value="Envoyer">
+								</div>
+								<div class="col-xs-9 col-sm-3 col-md-3 col-lg-3">
+									<input type="reset" id="recommencer" value="Recommencer" onClick="resseterError();">
+								</div>
+								<div class="col-xs-0 col-sm-7 col-md-7 col-lg-7">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+									
+			</form>
+		</div>
+		
 	
 	</body>
 </html>

@@ -19,53 +19,121 @@
 		<hr>
 		<br>
 		<form action="../serveur/collecteClients.php" method="POST" onSubmit="return validerInscription();">  
-		  
-		  <table class="tabInscription">
-				<tr>
-					<td><label for="nom">Nom: </label></td>
-					<td><input type="text" id="nom" name="nom" value=""></td>
-					<td><span id="nomErr" class="erreur"></span></td>
-				</tr>
-				<tr><td><br></td><td><br></td><td><br></td></tr>
-				<tr>
-					<td><label for="email">Courriel:</label></td>
-					<td><input type="text" id="email" name="email" value=""></td>
-					<td><span id="courrielErr" class="erreur"></span></td>
-			    </tr>
-				<tr><td><br></td><td><br></td><td><br></td></tr>
-				<tr>
-					<td><label for="mdp">Mot de passe:</label></td>
-					<td><input type="password" id="mdp" name="mdp" value=""></td>
-					<td><span id="mdpErr" class="erreur"></span></td>
-			    </tr>
-				<tr><td><br></td><td><br></td><td><br></td></tr>
-				<tr>
-					<td><label for="website">Votre site:</label></td>
-					<td><input type="text" id="website" name="website" value=""></td>
-					<td><span id="siteErr" class="erreur"></span></td>		
-			   </tr>
-			   <tr><td><br></td><td><br></td><td><br></td></tr>
-			   <tr>
-					<td><label for="comment">Commentaire:&nbsp; &nbsp;&nbsp;</label></td>
-					<td><textarea id="comment" name="comment" rows="5" cols="40"></textarea></td>
-					<td></td>
-				</tr>
-				<tr><td><br></td><td><br></td><td><br></td></tr>
-				<tr>
-					<td><label for="genre">Genre:</label></td>
-					<td>
-						<input type="radio" name="genre" value="femme"> Femme&nbsp;&nbsp;
-						<input type="radio" name="genre" value="homme"> Homme
-					</td>
-					<td><span id="genreErr" class="erreur"></span></td>
-				</tr>
-				<tr><td><br></td><td><br></td><td><br></td></tr>
-				<tr>				
-					<td><input type="submit" name="submit" value="Envoyer"></td>
-					<td><input type="reset" id="recommencer" value="Recommencer" onClick="resseterErr();"></td>
-					<td></td>
-				</tr>		    
-		   </table>
+		  <div class="container-fluid" class="tabInscription">
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="nom">Nom: </label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="text" id="nom" name="nom" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="nomErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="email">Courriel:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="text" id="email" name="email" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="courrielErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="mdp">Mot de passe:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="password" id="mdp" name="mdp" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="mdpErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="website">Votre site:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="text" id="website" name="website" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="siteErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>		  
+				    <div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="comment">Commentaire:&nbsp; &nbsp;&nbsp;</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<textarea id="comment" name="comment" rows="5" cols="40"></textarea>
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>		
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="genre">Genre:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="radio" name="genre" value="femme"> Femme&nbsp;&nbsp;
+									<input type="radio" name="genre" value="homme"> Homme
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="genreErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>	
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+									<input type="submit" name="submit" value="Envoyer">
+								</div>
+								<div class="col-xs-9 col-sm-3 col-md-3 col-lg-2">
+									<input type="reset" id="recommencer" value="Recommencer" onClick="resseterErr();">
+								</div>
+								<div class="col-xs-0 col-sm-7 col-md-7 col-lg-8">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>			
+				
 		</form>
 	
 	</body>

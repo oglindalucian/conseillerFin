@@ -6,9 +6,20 @@
 	display:inline;
 }
 
-.erreur {color: #FF0000;}
+.erreur {
+	color: #FF0000;
+}
 
 .tabInscription {
-	margin-left:10%;
+	margin-left:3%;
 }
+
+#formConnexion {
+	display:none;
+}
+
+#administrateur {
+	display:none;
+}
+
 
