@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Inscription</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<script language="javascript" src="../js/global.js"></script>
+		<link rel="stylesheet" href="../css/investisseur.css" type="text/css" />
+	</head>
+	<body>
+		<h2 class="tabInscription">Formulaire d'inscription</h2>
+		<p class="tabInscription"><span id="err" class="erreur"></span></p>
+		<hr>
+		<br>
+		<form action="../serveur/collecteClients.php" method="POST" onSubmit="return validerInscription();">  
+		  
+		  <table class="tabInscription">
+				<tr>
+					<td><label for="nom">Nom: </label></td>
+					<td><input type="text" id="nom" name="nom" value=""></td>
+					<td><span id="nomErr" class="erreur"></span></td>
+				</tr>
+				<tr><td><br></td><td><br></td><td><br></td></tr>
+				<tr>
+					<td><label for="email">Courriel:</label></td>
+					<td><input type="text" id="email" name="email" value=""></td>
+					<td><span id="courrielErr" class="erreur"></span></td>
+			    </tr>
+				<tr><td><br></td><td><br></td><td><br></td></tr>
+				<tr>
+					<td><label for="mdp">Mot de passe:</label></td>
+					<td><input type="password" id="mdp" name="mdp" value=""></td>
+					<td><span id="mdpErr" class="erreur"></span></td>
+			    </tr>
+				<tr><td><br></td><td><br></td><td><br></td></tr>
+				<tr>
+					<td><label for="website">Votre site:</label></td>
+					<td><input type="text" id="website" name="website" value=""></td>
+					<td><span id="siteErr" class="erreur"></span></td>		
+			   </tr>
+			   <tr><td><br></td><td><br></td><td><br></td></tr>
+			   <tr>
+					<td><label for="comment">Commentaire:&nbsp; &nbsp;&nbsp;</label></td>
+					<td><textarea id="comment" name="comment" rows="5" cols="40"></textarea></td>
+					<td></td>
+				</tr>
+				<tr><td><br></td><td><br></td><td><br></td></tr>
+				<tr>
+					<td><label for="genre">Genre:</label></td>
+					<td>
+						<input type="radio" name="genre" value="femme"> Femme&nbsp;&nbsp;
+						<input type="radio" name="genre" value="homme"> Homme
+					</td>
+					<td><span id="genreErr" class="erreur"></span></td>
+				</tr>
+				<tr><td><br></td><td><br></td><td><br></td></tr>
+				<tr>				
+					<td><input type="submit" name="submit" value="Envoyer"></td>
+					<td><input type="reset" id="recommencer" value="Recommencer" onClick="resseterErr();"></td>
+					<td></td>
+				</tr>		    
+		   </table>
+		</form>
+	
+	</body>
+</html>
