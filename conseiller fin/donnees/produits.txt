@@ -1,0 +1,10 @@
+1;Produit tres risque
+2;Produit risque
+3;Parfois risque
+4;Produit pas risque
+5;Produit aucun risque
+1;Produit tres risque2
+2;Produit risque2
+3;Parfois risque2
+4;Produit pas risque2
+5;Produit aucun risque2

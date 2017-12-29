@@ -61,6 +61,12 @@
 	else if(($age>=46 && $age<61)|| $risque=="4") {
 		$profil = "Investisseur modéré";
 	}
+	else if($risque=="1") {
+		$profil = "Investisseur très agréssif";
+	}
+	else if($risque=="5") {
+		$profil = "Investisseur très modéré";
+	}
 		
 	// for ($i = 0; $i < count($cles); $i++) {
 		// if($cle==i) {  //$produits[$cles[$i]]
@@ -86,6 +92,26 @@
 	
 	echo "<h1>Votre profil: ".$profil."</h1><br>";
 	echo "<h2>Liste des produits qui pourraient vous intéresser:</h2>";
+	
+	$tableau = "<ul>";
+	if(!$fic=fopen("../donnees/produits.txt","r")) {
+		echo "erreur: produits.txt";
+		exit;
+	}
+	
+	$ligne=fgets($fic);
+	while(!feof($fic)) {
+		$tab = explode(";",$ligne);
+		if($risque===$tab[0])
+			$tableau.="<li>".$tab[1]."</li>";
+		$ligne=fgets($fic);
+	}
+	$tableau.="</ul>";
+	echo $tableau;
+	fclose($fic);
+	
+	
+	
 	// echo "<ol>";
 	// for($i=0, nb=count($listeProduits); i<nb; i++) {
 		// echo "<li".$listeProduits[i]."</li>";
