@@ -3,7 +3,13 @@
 }
 
 #premier {
-	display:inline;
+	/* position:static; */
+	/* display:block; */
+	/* margin:0 auto; */
+	
+	margin: 0px auto;
+	float: none;
+	display: table;
 }
 
 .erreur {
@@ -14,6 +20,17 @@
 	margin-left:3%;
 }
 
+.formCentre {
+	/* margin: auto; */
+	/* display:block; */
+	
+	/* margin: 0px auto; */
+	/* float: none; */
+	/* display: table; */
+	
+	left:50%;
+}
+
 #formConnexion {
 	display:none;
 }
@@ -21,5 +38,7 @@
 #administrateur {
 	display:none;
 }
+
+
 
 

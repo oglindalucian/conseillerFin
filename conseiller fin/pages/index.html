@@ -1,97 +1,266 @@
 <!DOCTYPE html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Accueil</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<html lang="fr">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Bootstrap Theme The Band</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="javascript" src="../js/global.js"></script>
+  <link rel="stylesheet" href="../css/investisseur.css" type="text/css" />
+  <link rel="stylesheet" href="../css/accueil.css" type="text/css" />
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50" onLoad="creerElementsListes();">
 
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <span class="navbar-brand">Accueil</span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="index.html">ACCUEIL</a></li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>CONNEXION
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="connexion.html">Connexion</a></li>
+            <li><a href="inscription.html">Inscription</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span>PRODUITS
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="produits.html">Produits</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-flag"></span>LANGUE
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Anglais</a></li>
+            <li><a href="#">Français</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">INFO
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="listeSites.html">Liste des sites</a></li>
+            <li><a href="dictionnaire.html">Dictionnaire financier</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 400px; margin: 0 auto">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
 
-		<script language="javascript" src="../js/global.js"></script>
-		<link rel="stylesheet" href="../css/investisseur.css" type="text/css" />
-	</head>
-	<body onLoad="creerElementsListes()">
-		<div id="planSite">
-			<a href="sitemap.html">Plan du site</a>&nbsp;&nbsp;
-		</div>
-		<div id="textPageAccueil">
-			<h2>Page d'accueil</h2>&nbsp;&nbsp;&nbsp;
-		</div>
-		<div id="langues">
-			<a href="#">FR</a>&nbsp;<a href="#">EN</a>&nbsp;
-		</div>
-		<div id="dictionnaire">
-			<a href="dictionnaire.html">Dictionnaire</a>&nbsp;
-		</div>
-		<div id="produits">
-			<a href="produits.html">Produits</a>&nbsp;
-		</div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="../images/financial_products_pic1.jpg" alt="" width="200" height="125">
+        <div class="carousel-caption">
+          <h3>Les produits financiers</h3>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="../images/images.jpg" alt="" width="200" height="125">
+        <div class="carousel-caption">
+          <h3>Nos besoins</h3>          
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="../images/investment_loan.jpg" alt="Los Angeles" width="200" height="125">
+        <div class="carousel-caption">
+          <h3>Votre financement</h3>          
+        </div>      
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Arrière</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Suivant</span>
+    </a>
+</div>
+
+<!-- Container (The Band Section) -->
+<div id="band" class="container text-center">
+  <h3>Bienvenu sur notre site!</h3>
+  <p><em>Investissez efficacement!</em></p>
+  <p>Investir revient à engager de l'argent dans un projet, en renonçant à une consommation immédiate ou à un autre investissement (coût d'opportunité) et en acceptant un certain risque, pour accroître ses revenus futurs.</p>
+</div>
+
+<h1 align="center">Désirez-vous investir efficacement?</h1>
 		<br>
-		<div id="listeSites">
-			<a href="listeSites.html">Liste des sites</a>&nbsp;
-		</div>
-		<div id="bienvenu">
-			<h2>Bienvenu sur notre site!</h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		</div>
-		<div id="connexion">
-			<a href="connexion.html">Connexion</a>&nbsp;
-		</div>
-		<div id="senregistrer">
-			<a href="inscription.html">S'enregistrer</a>
-		</div>
-		<br>
-		<h1 align="center">Désirez-vous investir efficacement?</h1>
-		<br>
-		<div id="premier">			
-			<form action="avantages.php" method="post">
-				<input type="button" value="Oui" name="oui" id="oui" onClick="rendreVisible('etabProfil'); rendreInvisible('premier')">
-				<input type="submit" value="Non" name="non" id="non"/>
-			</form>			
-		</div>
+		
+						<div id="premier">			
+							<form action="avantages.php" method="post">
+								<input type="button" class="btn btn-default" value="Oui" name="oui" id="oui" onClick="rendreVisible('etabProfil'); rendreInvisible('premier')">
+								<input type="submit" class="btn btn-default" value="Non" name="non" id="non"/>
+							</form>			
+						</div>
+					
 		<br>
 		<div id="etabProfil">
+			<h4>Établissez votre profil d'investisseur</h4>
 			<form id="votreProfil" name="votreProfil" action="../serveur/votreProfil.php" method="post">
-			<caption><b>Établir profil investisseur</b></caption>
-			<table border=1>
-				<tr>
-					<td><label for="age">Age</label></td>
-					<td><select id="age" name="age"></select></td>
-				</tr>
-				<tr>
-					<td><label for="profession">Profession</label></td>
-					<td>
-						<select id="profession" name="profession">
-							<option value="enseignement">Enseignement</option>
-							<option value="construction">Construction</option>
-							<option value="IT">IT</option>
-							<option value="Finance">Finance</option>
-							<option value="Santé">Santé</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td><label for="risque">Aversion au risque</label></td>
-					<td>
-						<select id="risque" name="risque">
-							<option value="1">J'aime prendre beaucoup de risques</option>
-							<option value="2">J'aime prendre des risques</option>
-							<option value="3">Parfois j'aime prendre des risques</option>
-							<option value="4">Je n'aime pas prendre des risques</option>
-							<option value="5">Je ne prends jamais des risques</option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td><input type="submit"/></td>
-					<td><input type="reset"/></td>
-				</tr>
-			</table>
+			<table align="center">
+					<tr>
+						<td><label for="age">Age</label></td>
+						<td><select id="age" name="age"></select></td>
+					</tr>
+					<tr><td><br></td><td></td></tr>
+					<tr>
+						<td><label for="profession">Profession</label></td>
+						<td>
+							<select id="profession" name="profession">
+								<option value="enseignement">Enseignement</option>
+								<option value="construction">Construction</option>
+								<option value="IT">IT</option>
+								<option value="Finance">Finance</option>
+								<option value="Santé">Santé</option>
+							</select>
+						</td>
+					</tr>
+					<tr><td><br></td><td></td></tr>
+					<tr>
+						<td><label for="risque">Aversion au risque &nbsp;&nbsp;&nbsp;</label></td>
+						<td>
+							<select id="risque" name="risque">
+								<option value="1">J'aime prendre beaucoup de risques</option>
+								<option value="2">J'aime prendre des risques</option>
+								<option value="3">Parfois j'aime prendre des risques</option>
+								<option value="4">Je n'aime pas prendre des risques</option>
+								<option value="5">Je ne prends jamais des risques</option>
+							</select>
+						</td>
+					</tr>
+					<tr><td><br></td><td></td></tr>
+					<tr>
+						<td><input type="submit" class="btn btn-default"/></td>
+						<td><input type="reset" class="btn btn-default"/></td>
+					</tr>
+					<tr><td><br></td><td></td></tr>
+				</table>
+				
 			</form>
 				
 		</div>
-	
-	</body>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container">
+  <h3 class="text-center">Contactez-nous</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <p>Des questions? N'hesitez pas!</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Montréal, Canada</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Téléphone: +00 1515151515</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Courriel: mail@mail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  
+</div>
+
+<!-- Add Google Maps -->
+<div id="googleMap"></div>
+<script>
+function myMap() {
+var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var marker = new google.maps.Marker({position:myCenter});
+marker.setMap(map);
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+<!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p> 
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+
+</body>
 </html>
