@@ -1,0 +1,11 @@
+Action;Titre de propriété d’une société représentant un droit sur les bénéfices et sur l’actif.
+Action cotée en bourse;Action d’une société qui se négocie en bourse.
+Action cotée en cents;Valeur spéculative qui se vend au-dessous de 1 $ l’action. Certaines d’entre elles ont pris énormément de valeur.
+Action de capital;Composante d’une action scindée qui peut jouir du potentiel de gain en capital et qui peut recevoir des dividendes
+Action privilégiée;Action d’une société accordant à son détenteur le droit de recevoir un dividende fixe avant les actionnaires ordinaires et une somme fixe en cas de liquidation.  Les actions privilégiées ne bénéficient normalement pas d’un droit de vote.
+Action ordinaire;Titre représentatif d’une part de propriété dans une entreprise.  Elle comporte des privilèges de vote et donne droit de recevoir des dividendes, s’ils sont déclarés.
+Analyse fondamentale;Analyse de valeurs qui repose sur des données essentielles relatives à une société que révèlent ses états financiers et sur la conjoncture économique qui influe sur ses affaires.
+Analyse quantitative;Étude des tendances dans l’évaluation des variables économiques et des valeurs mobilières visant à déceler des anomalies et à en tirer profit.
+Analyse technique ou analyse chartiste;Type d’analyse de valeurs mobilières ou du marché dans son ensemble qui étudie l’attitude et le comportement des investisseurs à partir de graphiques illustrant les fl uctuations des cours et le volume des opérations.  Le but de l’analyse technique est de prévoir l’évolution des cours des actions.
+Au-dessous du pair ou escompte;Se dit d’une action privilégiée ou d’une obligation lorsque le cours de ces dernières se situe au-dessous de leur valeur nominale.
+Au-dessus du pair;Se dit d’une action privilégiée ou d’une obligation lorsque le cours de ces dernières se situe au-dessus de leur valeur nominale.
