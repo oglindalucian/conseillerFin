@@ -15,58 +15,58 @@
   <link rel="stylesheet" href="../css/accueil.css" type="text/css" />
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50" onLoad="creerElementsListes();">
-
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <span class="navbar-brand">Accueil</span>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">ACCUEIL</a></li>
-		<li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>CONNEXION
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="connexion.html">Connexion</a></li>
-            <li><a href="inscription.html">Inscription</a></li>
-          </ul>
-        </li>
-		<li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span>PRODUITS
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="produits.php">Produits</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-flag"></span>LANGUE
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Anglais</a></li>
-            <li><a href="#">Français</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">INFO
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="sites.php">Liste des sites</a></li>
-            <li><a href="dictionnaire.php">Dictionnaire financier</a></li>
-          </ul>
-        </li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
+ <?php include 'menu.php';?>
+<!-- <nav class="navbar navbar-default navbar-fixed-top"> -->
+  <!-- <div class="container-fluid"> -->
+    <!-- <div class="navbar-header"> -->
+      <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> -->
+        <!-- <span class="icon-bar"></span> -->
+        <!-- <span class="icon-bar"></span> -->
+        <!-- <span class="icon-bar"></span>                         -->
+      <!-- </button> -->
+      <!-- <span class="navbar-brand">Accueil</span> -->
+    <!-- </div> -->
+    <!-- <div class="collapse navbar-collapse" id="myNavbar"> -->
+      <!-- <ul class="nav navbar-nav navbar-right"> -->
+        <!-- <li><a href="index.html">ACCUEIL</a></li> -->
+		<!-- <li class="dropdown"> -->
+          <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>CONNEXION -->
+          <!-- <span class="caret"></span></a> -->
+          <!-- <ul class="dropdown-menu"> -->
+            <!-- <li><a href="connexion.html">Connexion</a></li> -->
+            <!-- <li><a href="inscription.html">Inscription</a></li> -->
+          <!-- </ul> -->
+        <!-- </li> -->
+		<!-- <li class="dropdown"> -->
+          <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span>PRODUITS -->
+          <!-- <span class="caret"></span></a> -->
+          <!-- <ul class="dropdown-menu"> -->
+            <!-- <li><a href="produits.php">Produits</a></li> -->
+            <!-- <li><a href="#contact">Contact</a></li> -->
+          <!-- </ul> -->
+        <!-- </li> -->
+        <!-- <li class="dropdown"> -->
+          <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-flag"></span>LANGUE -->
+          <!-- <span class="caret"></span></a> -->
+          <!-- <ul class="dropdown-menu"> -->
+            <!-- <li><a href="#">Anglais</a></li> -->
+            <!-- <li><a href="#">Français</a></li> -->
+          <!-- </ul> -->
+        <!-- </li> -->
+        <!-- <li class="dropdown"> -->
+          <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">INFO -->
+          <!-- <span class="caret"></span></a> -->
+          <!-- <ul class="dropdown-menu"> -->
+            <!-- <li><a href="sites.php">Liste des sites</a></li> -->
+            <!-- <li><a href="dictionnaire.php">Dictionnaire financier</a></li> -->
+          <!-- </ul> -->
+        <!-- </li> -->
+        <!-- <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li> -->
+      <!-- </ul> -->
+    <!-- </div> -->
+  <!-- </div> -->
+<!-- </nav> -->
+<br><br><br><span id="Haut"></span>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 400px; margin: 0 auto">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -224,12 +224,14 @@ Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
 
 <!-- Footer -->
-<footer class="text-center">
-  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="En haut">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a><br><br>
-  <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p> 
-</footer>
+<!-- <footer class="text-center"> -->
+  <!-- <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="En haut"> -->
+    <!-- <span class="glyphicon glyphicon-chevron-up"></span> -->
+  <!-- </a><br><br> -->
+  <!-- <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p>  -->
+<!-- </footer> -->
+
+<?php include 'footer.php';?>
 
 <script>
 $(document).ready(function(){

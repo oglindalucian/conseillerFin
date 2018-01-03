@@ -3,11 +3,24 @@
 <?php
 
 $nom = test_input($_POST['nom']);
+$nom = filter_var($nom, FILTER_SANITIZE_STRING);
 $courriel = test_input($_POST['email']);
+$courriel=filter_var($courriel, FILTER_SANITIZE_EMAIL);
+if (filter_var($courriel, FILTER_VALIDATE_EMAIL) === false) {
+   echo("Ce n'est pas une adresse de courriel valide.");
+   $courriel = null;
+}
 $site = test_input($_POST['website']);
+$site = filter_var($site, FILTER_SANITIZE_URL);
+if (!filter_var($site, FILTER_VALIDATE_URL) === false) {
+   echo("Ce n'est pas une URL valide.");
+   $site = null;
+}
 $commentaire = test_input($_POST['comment']);
+$commentaire = filter_var($commentaire, FILTER_SANITIZE_STRING);
 $genre = test_input($_POST['genre']);
 $mdp = test_input($_POST['mdp']);
+$mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
 
 function test_input($data) {
   $data = trim($data);
@@ -16,12 +29,12 @@ function test_input($data) {
   return $data;
 }
 
-// echo $nom."<br>";
-// echo $courriel."<br>";
-// echo $site."<br>";
-// echo $commentaire."<br>";
-// echo $genre."<br>";
-// echo $mdp."<br>";
+echo $nom."<br>";
+echo $courriel."<br>";
+echo $site."<br>";
+echo $commentaire."<br>";
+echo $genre."<br>";
+echo $mdp."<br>";
 
 //sa inscriu toata asta intr-un fisier sau BD
 

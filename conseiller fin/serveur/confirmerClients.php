@@ -1,8 +1,16 @@
 <?php
 	$courriel = test_input($_POST['couriel']);
+	$courriel=filter_var($courriel, FILTER_SANITIZE_EMAIL);
+	if (filter_var($courriel, FILTER_VALIDATE_EMAIL) === false) {
+	   echo("Ce n'est pas une adresse de courriel valide.");
+	   $courriel = null;
+	}
 	$mdp = test_input($_POST['mPasse']);
-	if (isset($_POST['cleAdmin']))
+	$mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
+	if (isset($_POST['cleAdmin'])) {
 		$cle = test_input($_POST['cleAdmin']);
+		$cle = filter_var($cle, FILTER_SANITIZE_STRING);
+	}
 
 function test_input($data) {
   $data = trim($data);
