@@ -6,9 +6,9 @@
 	  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	  <script language="javascript" src="../js/global.js"></script>
-	  <link rel="stylesheet" href="../css/investisseur.css" type="text/css" />
-	  <link rel="stylesheet" href="../css/accueil.css" type="text/css" />
+	  <script language="javascript" src="js/global.js"></script>
+	  <link rel="stylesheet" href="css/investisseur.css" type="text/css" />
+	  <link rel="stylesheet" href="css/accueil.css" type="text/css" />
 	  
 <?php include 'menu.php';?>	  
 
@@ -17,7 +17,7 @@
 echo "<br><br><br><br><span id=\"Haut\"></span>\n"; 
 echo "		<div class=\"jumbotron text-center\">\n"; 
 echo "			<p>Recherchez dans le dictionnaire:</p> \n"; 
-echo "			<form class=\"form-inline\" action=\"../serveur/rechercheDictionnaire.php\" method=\"post\">\n"; 
+echo "			<form class=\"form-inline\" action=\"serveur/rechercheDictionnaire.php\" method=\"post\">\n"; 
 echo "				<input type=\"search\" size=\"50\" name=\"votreRecherche\">\n"; 
 echo "				<input type=\"submit\" class=\"btn btn-default\" value=\"Recherchez\">			\n"; 
 echo "			</form>\n"; 
@@ -27,7 +27,7 @@ echo "	<br><br>\n";
 
 echo "<span id=\"termes\"></span>";
 
-if(!$fic=fopen("../donnees/termesFinanciers.txt","r")) {
+if(!$fic=fopen("donnees/termesFinanciers.txt","r")) {
 		echo "erreur: termesFinanciers.txt";
 		exit;
 	}
@@ -45,7 +45,7 @@ if(!$fic=fopen("../donnees/termesFinanciers.txt","r")) {
 	echo $termes."<br><br><br>";
 	fclose($fic);
 	
-	if(!$fic=fopen("../donnees/termesFinanciers.txt","r")) {
+	if(!$fic=fopen("donnees/termesFinanciers.txt","r")) {
 		echo "erreur: termesFinanciers.txt";
 		exit;
 	}

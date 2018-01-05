@@ -42,58 +42,80 @@ echo $mdp."<br>";
 $ligneAEnregistrer=$courriel.';'.$nom.';'.$site.';'.$commentaire.';'.$genre.';'.$mdp.';'.PHP_EOL;
 //echo $ligneAEnregistrer;
 
-if(!$fic=fopen("../donnees/clients.txt","r")){
-		echo "ERREUR: probleme avec le fichier txt";
-		exit;
-}
+// if(!$fic=fopen("../donnees/clients.txt","r")){
+		// echo "ERREUR: probleme avec le fichier txt";
+		// exit;
+// }
 
-if(!$ficTmp=fopen("../donnees/clients.tmp","w")){
-		  echo "ERREUR: probleme de creation du fichier .tmp";
-		  exit;
-}
+// if(!$ficTmp=fopen("../donnees/clients.tmp","w")){
+		  // echo "ERREUR: probleme de creation du fichier .tmp";
+		  // exit;
+// }
 	
 
-	//fputs($fic,$ligneAEnregistrer);
-	//fclose($fic);
-	$ligne=fgets($fic);
-	$ok = true;
-	while(!feof($fic) && $ok){
-		$tab=explode(";",$ligne);
-		if($courriel===$tab[0]) {
-			$ok = false;
-			//ECHO "COURRIEL EXISTE DEJA";
-		}		
-	    $ligne=fgets($fic);
-	 }
-	 fclose($fic);
-	 if(!$fic=fopen("../donnees/clients.txt","r")){
-		echo "ERREUR: probleme avec le fichier txt";
-		exit;
-}
-	 $ligne=fgets($fic);
-	 if(!$ok) { //exista deja
-	 //$ligne=fgets($fic);
-		while(!feof($fic)){
-			$tab=explode(";",$ligne);
-			fputs($ficTmp,$ligne);
-			$ligne=fgets($fic);
-		}		
-	 } else { //daca nu exista
-	 //$ligne=fgets($fic);
-		 while(!feof($fic)){
-			$tab=explode(";",$ligne);
-			fputs($ficTmp,$ligne);
-			$ligne=fgets($fic);
-		}
-			fputs($ficTmp,$ligneAEnregistrer);
-	 } 
+	// //fputs($fic,$ligneAEnregistrer);
+	// //fclose($fic);
+	// $ligne=fgets($fic);
+	// $ok = true;
+	// while(!feof($fic) && $ok){
+		// $tab=explode(";",$ligne);
+		// if($courriel===$tab[0]) {
+			// $ok = false;
+			// //ECHO "COURRIEL EXISTE DEJA";
+		// }		
+	    // $ligne=fgets($fic);
+	 // }
+	 // fclose($fic);
+	 // if(!$fic=fopen("../donnees/clients.txt","r")){
+		// echo "ERREUR: probleme avec le fichier txt";
+		// exit;
+// }
+	 // $ligne=fgets($fic);
+	 // if(!$ok) { //exista deja
+	 // //$ligne=fgets($fic);
+		// while(!feof($fic)){
+			// $tab=explode(";",$ligne);
+			// fputs($ficTmp,$ligne);
+			// $ligne=fgets($fic);
+		// }		
+	 // } else { //daca nu exista
+	 // //$ligne=fgets($fic);
+		 // while(!feof($fic)){
+			// $tab=explode(";",$ligne);
+			// fputs($ficTmp,$ligne);
+			// $ligne=fgets($fic);
+		// }
+			// fputs($ficTmp,$ligneAEnregistrer);
+	 // } 
 	 
-	 fclose($fic);
-	 fclose($ficTmp);
-	 unlink("../donnees/clients.txt");
-	 rename("../donnees/clients.tmp","../donnees/clients.txt");
-	if($ok) echo "<br><b>AJOUT DU client : <h2>".$nom."</h2></b>";
-	else ECHO "COURRIEL EXISTE DEJA";
+	 // fclose($fic);
+	 // fclose($ficTmp);
+	 // unlink("../donnees/clients.txt");
+	 // rename("../donnees/clients.tmp","../donnees/clients.txt");
+	 
+	try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	
+}
+catch(Exception $e)
+{
+        die('Erreur : '.$e->getMessage());
+}
 
+try {
+$req = $bdd->prepare('INSERT INTO utilisateurs(nom, courriel, mdp, site, commentaire, genre) VALUES(:nom, :courriel, :mdp, :site, :commentaire, :genre)');
+$req->execute(array(
+	 'nom' => $nom,
+	 'courriel' => $courriel,
+	 'mdp' => $mdp,
+	 'site' => $site,
+	 'commentaire' => $commentaire,
+	 'genre' => $genre
+ ));
+}
 
+catch(Exception $e) {
+		die('Erreur : '.$e->getMessage().'<br><b>Ce courriel existe deja!</b>');
+	} 
 ?>

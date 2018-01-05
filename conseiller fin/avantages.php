@@ -6,9 +6,9 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script language="javascript" src="../js/global.js"></script>
-  <link rel="stylesheet" href="../css/investisseur.css" type="text/css" />
-  <link rel="stylesheet" href="../css/accueil.css" type="text/css" />
+  <script language="javascript" src="js/global.js"></script>
+  <link rel="stylesheet" href="css/investisseur.css" type="text/css" />
+  <link rel="stylesheet" href="css/accueil.css" type="text/css" />
   
  <?php include 'menu.php';?>
 

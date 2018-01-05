@@ -15,7 +15,7 @@ echo "      <span class=\"navbar-brand\">$page</span>\n";
 echo "    </div>\n"; 
 echo "    <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n"; 
 echo "      <ul class=\"nav navbar-nav navbar-right\">\n"; 
-echo "        <li><a href=\"index.html\">ACCUEIL</a></li>\n"; 
+echo "        <li><a href=\"index.php\">ACCUEIL</a></li>\n"; 
 echo "		<li class=\"dropdown\">\n"; 
 echo "          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"glyphicon glyphicon-user\"></span>CONNEXION\n"; 
 echo "          <span class=\"caret\"></span></a>\n"; 
@@ -29,7 +29,7 @@ echo "          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"
 echo "          <span class=\"caret\"></span></a>\n"; 
 echo "          <ul class=\"dropdown-menu\">\n"; 
 echo "            <li><a href=\"produits.php\">Produits</a></li>\n"; 
-echo "            <li><a href=\"index.html#contact\">Contact</a></li>\n"; 
+echo "            <li><a href=\"index.php#contact\">Contact</a></li>\n"; 
 echo "          </ul>\n"; 
 echo "        </li>\n"; 
 echo "        <li class=\"dropdown\">\n"; 

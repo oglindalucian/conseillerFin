@@ -10,62 +10,13 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script language="javascript" src="../js/global.js"></script>
-  <link rel="stylesheet" href="../css/investisseur.css" type="text/css" />
-  <link rel="stylesheet" href="../css/accueil.css" type="text/css" />
+  <script language="javascript" src="js/global.js"></script>
+  <link rel="stylesheet" href="css/investisseur.css" type="text/css" />
+  <link rel="stylesheet" href="css/accueil.css" type="text/css" />
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50" onLoad="creerElementsListes();">
  <?php include 'menu.php';?>
-<!-- <nav class="navbar navbar-default navbar-fixed-top"> -->
-  <!-- <div class="container-fluid"> -->
-    <!-- <div class="navbar-header"> -->
-      <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"> -->
-        <!-- <span class="icon-bar"></span> -->
-        <!-- <span class="icon-bar"></span> -->
-        <!-- <span class="icon-bar"></span>                         -->
-      <!-- </button> -->
-      <!-- <span class="navbar-brand">Accueil</span> -->
-    <!-- </div> -->
-    <!-- <div class="collapse navbar-collapse" id="myNavbar"> -->
-      <!-- <ul class="nav navbar-nav navbar-right"> -->
-        <!-- <li><a href="index.html">ACCUEIL</a></li> -->
-		<!-- <li class="dropdown"> -->
-          <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>CONNEXION -->
-          <!-- <span class="caret"></span></a> -->
-          <!-- <ul class="dropdown-menu"> -->
-            <!-- <li><a href="connexion.html">Connexion</a></li> -->
-            <!-- <li><a href="inscription.html">Inscription</a></li> -->
-          <!-- </ul> -->
-        <!-- </li> -->
-		<!-- <li class="dropdown"> -->
-          <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-shopping-cart"></span>PRODUITS -->
-          <!-- <span class="caret"></span></a> -->
-          <!-- <ul class="dropdown-menu"> -->
-            <!-- <li><a href="produits.php">Produits</a></li> -->
-            <!-- <li><a href="#contact">Contact</a></li> -->
-          <!-- </ul> -->
-        <!-- </li> -->
-        <!-- <li class="dropdown"> -->
-          <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-flag"></span>LANGUE -->
-          <!-- <span class="caret"></span></a> -->
-          <!-- <ul class="dropdown-menu"> -->
-            <!-- <li><a href="#">Anglais</a></li> -->
-            <!-- <li><a href="#">Français</a></li> -->
-          <!-- </ul> -->
-        <!-- </li> -->
-        <!-- <li class="dropdown"> -->
-          <!-- <a class="dropdown-toggle" data-toggle="dropdown" href="#">INFO -->
-          <!-- <span class="caret"></span></a> -->
-          <!-- <ul class="dropdown-menu"> -->
-            <!-- <li><a href="sites.php">Liste des sites</a></li> -->
-            <!-- <li><a href="dictionnaire.php">Dictionnaire financier</a></li> -->
-          <!-- </ul> -->
-        <!-- </li> -->
-        <!-- <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li> -->
-      <!-- </ul> -->
-    <!-- </div> -->
-  <!-- </div> -->
-<!-- </nav> -->
+
 <br><br><br><span id="Haut"></span>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 400px; margin: 0 auto">
     <!-- Indicators -->
@@ -78,21 +29,21 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="../images/financial_products_pic1.jpg" alt="" width="200" height="125">
+        <img src="images/financial_products_pic1.jpg" alt="" width="200" height="125">
         <div class="carousel-caption">
           <h3>Les produits financiers</h3>
         </div>      
       </div>
 
       <div class="item">
-        <img src="../images/images.jpg" alt="" width="200" height="125">
+        <img src="images/images.jpg" alt="" width="200" height="125">
         <div class="carousel-caption">
           <h3>Nos besoins</h3>          
         </div>      
       </div>
     
       <div class="item">
-        <img src="../images/investment_loan.jpg" alt="Los Angeles" width="200" height="125">
+        <img src="images/investment_loan.jpg" alt="Los Angeles" width="200" height="125">
         <div class="carousel-caption">
           <h3>Votre financement</h3>          
         </div>      
@@ -130,7 +81,7 @@
 		<br>
 		<div id="etabProfil">
 			<h4>Établissez votre profil d'investisseur</h4>
-			<form id="votreProfil" name="votreProfil" action="../serveur/votreProfil.php" method="post">
+			<form id="votreProfil" name="votreProfil" action="serveur/votreProfil.php" method="post">
 			<table align="center">
 					<tr>
 						<td><label for="age">Age</label></td>
@@ -222,14 +173,6 @@ marker.setMap(map);
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
-
-<!-- Footer -->
-<!-- <footer class="text-center"> -->
-  <!-- <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="En haut"> -->
-    <!-- <span class="glyphicon glyphicon-chevron-up"></span> -->
-  <!-- </a><br><br> -->
-  <!-- <p>Bootstrap Theme Made By <a href="https://www.w3schools.com" data-toggle="tooltip" title="Visit w3schools">www.w3schools.com</a></p>  -->
-<!-- </footer> -->
 
 <?php include 'footer.php';?>
 

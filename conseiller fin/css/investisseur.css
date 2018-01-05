@@ -44,4 +44,6 @@
 	margin-right:5%;
 }
 
-
+th, td {
+	padding:1%;
+}
