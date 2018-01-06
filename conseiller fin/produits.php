@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ session_start();
 
 echo "<br><br><br><br><span id=\"Haut\"></span>";
 echo '<h1 align="center">Liste des produits disponibles actuellement</h1>';
-$ok = false;
+//$ok = false;
 	try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -35,31 +35,43 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$reponse = $bdd->query('SELECT p.nom AS nomProduit, i.nom AS nomInstitution, ROUND(p.prix,2) AS prix_arrondi, r.explication AS explicationRisque
+$reponse = $bdd->query('SELECT p.nom AS nomProduit, i.id_institution AS IdInstitution, i.nom AS nomInstitution, ROUND(p.prix,2) 
+AS prix_arrondi, r.id_risque AS IdRisque, r.explication AS explicationRisque
 FROM produits p, institutions i, risque r 
 WHERE i.id_institution = p.id_institution AND
 r.id_risque = p.id_risque
 ORDER BY nomProduit, nomInstitution');
 
 ?>
-<table border=1 style="border-collapse:collapse; margin:2% auto;">;
-<tr><th>Nom produit</th><th>Institution financiere</th><th>Prix</th><th>Risque</th><th>Acheter</th></tr>;
+<table border=1>
+<tr><th>Numéro</th><th>Nom produit</th><th>Institution financiere</th><th>Prix</th><th>Risque</th><th>Acheter</th></tr>
 
 <?php
+$i = 0;
+$lien = "";
 while ($donnees = $reponse->fetch())
 {
-	$_SESSION["produitSelectionne"] = $donnees['nomProduit'];
-	$_SESSION["nomInstitutionProduit"] = $donnees['nomInstitution'];
-	$_SESSION["prixProduit"] = $donnees['prix_arrondi'];
-	$_SESSION["risqueProduit"] = $donnees['explicationRisque'];
-	echo '<tr><td>'.$donnees['nomProduit']. '</td><td>'.$donnees['nomInstitution']. '</td><td>$'.$donnees['prix_arrondi']. '</td><td>'.$donnees['explicationRisque']. '</td><td><a href="acheter.php?nom='.$donnees['nomProduit'].'&institution='.$donnees['nomInstitution'].'&prix='.$donnees['prix_arrondi'].'&risque='.$donnees['explicationRisque'].'">Acheter</a></td></tr>';
+	$i++;
+	if(!isset($_COOKIE['authentification'])) {
+		$lien = "<a href=\"connexion.html\">Connexion</a>";
+		echo '<tr><td>'.$i.'</td><td>'.$donnees['nomProduit']. '</td><td>'.$donnees['nomInstitution'].'</td><td>$'
+		.$donnees['prix_arrondi'].'</td><td>'.$donnees['explicationRisque'].'</td><td>'.$lien.'</td></tr>';
+	} else {
+		$lien = '<a id="'.$i.'"  href="acheter.php?nom='
+	.$donnees['nomProduit'].'&institution='.$donnees['nomInstitution'].'&prix='.$donnees['prix_arrondi'].'&risque='.$donnees['explicationRisque'].
+	'&IdRisk='.$donnees['IdRisque'].'&IdBank='.$donnees['IdInstitution'].'">Acheter</a>';
+	
+	echo '<tr><td>'.$i.'</td><td>'.$donnees['nomProduit']. '</td><td>'.$donnees['nomInstitution'].'</td><td>$'
+	.$donnees['prix_arrondi'].'</td><td>'.$donnees['explicationRisque'].'</td><td>'.$lien.'</td></tr>';
+	}
 }
 
 $reponse->closeCursor();
-echo "<br><br><br><br>";
-$ok = true;
+echo "</table><br><br><br><br>";
+//$ok = true;
 ?>	
 
-<?php  if($ok===true) include 'footer.php';?>
+<?php  //if($ok===true) 
+	include 'footer.php';?>
 </body>
 </html>

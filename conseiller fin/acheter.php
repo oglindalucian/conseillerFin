@@ -1,5 +1,6 @@
 <?php
-//session_start();
+	//session_start();
+	//header('Location: produits.php');
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,14 +18,12 @@
   <link rel="stylesheet" href="css/accueil.css" type="text/css" />
 </head>
 <body onLoad="creerListesProduits();">
+<a href="index.php">Accueil</a>
 <?php
 if(!isset($_COOKIE['authentification'])) {
     echo "<a href=\"connexion.html\">Il faut se connecter d'abord pour pouvoir ajouter des produits à son panier.</a>";
 } else {
-   // echo $_SESSION["produitSelectionne"]."<br>";
-   // echo $_SESSION["nomInstitutionProduit"]."<br>";
-   // echo $_SESSION["prixProduit"]."<br>";
-   // echo $_SESSION["risqueProduit"];
+   $produit = $institution = $prix = $risque = $idRisque = $idBank = $idUtilisateur = null;
    echo "<br><br><br><div class=\"tabInscription\">";
 	   $produit = test_input($_GET['nom']);
 	   echo "<b>".$produit."</b><br>";
@@ -34,36 +33,59 @@ if(!isset($_COOKIE['authentification'])) {
 	   echo $prix."<br>";
 	   $risque = test_input($_GET['risque']);
 	   echo $risque."<br>";
-	   echo "<form action=\"\" method=\"post\" id=\"ajouterAuPanier\" name=\"ajouterAuPanier\">
-	   Quantité:<select id=\"quantiteProduits\" nom=\"quantiteProduits\"><select><br><input type=\"submit\" value=\"Ajouter au panier\"></form>";
-   echo "</div><BR><BR>";
-   $quantite = "";
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-   $quantite = test_input($_POST["quantiteProduits"]);
-   echo $quantite;
-   }
-   
-   try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	   $idRisque = test_input($_GET['IdRisk']);
+	   echo "IdRisk:".$idRisque."<br>";
+	   $idRisque = intval($idRisque);
+	   $idBank = test_input($_GET['IdBank']);
+	   echo "IdBank:".$idBank."<br>";
+	   $idBank = intval($idBank);
+	   $idUtilisateur = $_COOKIE["IdUtil"];
+	   echo "IdUtilisatuer: ".$idUtilisateur."<br>";
+	   $idUtilisateur = intval($idUtilisateur);
+	   echo "<form action=\"\" method=\"POST\" id=\"ajouterAuPanier\" name=\"ajouterAuPanier\">
+	   Produit:<input type=\"text\" value=\"".$produit."\"><br>
+	   Nom institution:<input type=\"text\" value=\"".$institution."\"><br>
+	   Prix:<input type=\"text\" value=\"".$prix."\"><br>
+	   Type de risque:<input type=\"text\" value=\"".$risque."\"><br>
+	   Id risque:<input type=\"text\" value=\"".$idRisque."\"><br>
+	   Id Institution:<input type=\"text\" value=\"".$idBank."\"><br>
+	   Id Utilisateur:<input type=\"text\" value=\"".$idUtilisateur."\"><br>";
+	   echo 'Quantité:<select id="quantiteProduits" name="quantiteProduits"></select><br>';
+	   //echo '<input type="text" name="nb">';
+	   echo "<input type=\"submit\" id=\"envoi\" value=\"Ajouter au panier\"><br>
+	   <input type=\"reset\" value=\"Recommencer\">
+	   </form>";
+   echo "</div><br><br>";
+    $quantite = 1;
+	$i = 0;
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		//$quantite = intval($_POST['quantiteProduits']);
+		echo "Vous avez commande: ".$quantite;
+    
+	try
+	{
+		$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	}
+	catch(Exception $e)
+	{
+			die('Erreur : '.$e->getMessage());
+	}
+	 $req = $bdd->prepare('INSERT INTO produitsachetes(
+	id_utilisateur, nom, id_institution, prix, id_risque) 
+	VALUES(:id_utilisateur, :nom, :id_institution, :prix, :id_risque)') or die(print_r($bdd->errorInfo()));
+	 
+	 for($i = 0; $i<$quantite; $i++) {
+		 $req->execute(array(
+			 'id_utilisateur' => $idUtilisateur, //ok
+			 'nom' => $produit,//ok
+			 'id_institution' => $idBank,//ok
+			 'prix' => $prix,//ok
+			 'id_risque' => $idRisque //ok
+			
+			 ));
+		}
+	}
 }
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
- $req = $bdd->prepare('INSERT INTO produitsachetes(
-id_utilisateur, nom, id_institution, prix, id_risque) 
-VALUES(:id_utilisateur, :nom, :id_institution, :prix, :id_risque)') or die(print_r($bdd->errorInfo()));
- $req->execute(array(
-	 'id_utilisateur' => $nom,
-	 'nom' => $produit,
-	 'id_institution' => $console,
-	 'prix' => $prix,
-	 'id_risque' => $nbre_joueurs_max,
-	
-	 ));
-}
-
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);

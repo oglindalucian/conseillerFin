@@ -201,12 +201,21 @@ function creerElementsListes() {
 
 function creerListesProduits() {
 	var liste = document.getElementById("quantiteProduits");
-	for(var i=1; i<=200; i++) {
-		var options = document.createElement("option");
-		options.textContent = i;
-		options.value = i;
-		liste.appendChild(options);
+	if(liste!=null) {
+		for(var i=1; i<=200; i++) {
+			var options = document.createElement("option");
+			options.textContent = i;
+			options.value = i;
+			liste.appendChild(options);
+		}
 	}
+}
+
+function ajoutPanier() {
+	//var liens = document.getElementsByClassName("achat");
+	this.onclick = function(){
+		this.color = "green";
+	};
 }
 
 
