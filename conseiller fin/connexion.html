@@ -16,10 +16,10 @@
 	<body>
 		<h2 class="tabInscription">Connexion</h2>
 		<p class="tabInscription">
-			<a href="#" onClick="rendreVisible('formConnexion');rendreVisible('administrateur');">Administrateur</a>
+			<a href="#" onClick="rendreVisible('formConnexion');rendreVisible('administrateur');rendreInvisible('inscription');">Administrateur</a>
 		</p>
 		<p class="tabInscription">
-			<a href="#" onClick="rendreVisible('formConnexion');rendreInvisible('administrateur');">Client</a>
+			<a href="#" onClick="rendreVisible('formConnexion');rendreInvisible('administrateur');rendreVisible('inscription');">Client</a>
 		</p>		
 		<br>
 		<p class="tabInscription"><span id="error" class="erreur"></span></p>
@@ -87,6 +87,22 @@
 									<input type="reset" id="recommencer" value="Recommencer" onClick="resseterError();">
 								</div>
 								<div class="col-xs-0 col-sm-7 col-md-7 col-lg-7">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<br><br>
+					<div class="row" id="inscription">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label><span class="erreur">Pas encore inscrit?</span></label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<a href="inscription.html">Inscription</a>
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
 									
 								</div>
 							</div>

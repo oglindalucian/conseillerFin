@@ -1,3 +1,8 @@
+body {
+	/* background-image: url("../images/bg.jpg"); */
+}
+
+
 #etabProfil {
 	display:none;
 }
@@ -18,6 +23,10 @@
 
 .tabInscription {
 	margin-left:3%;
+}
+
+.details {
+	margin-left:10%;
 }
 
 .formCentre {

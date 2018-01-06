@@ -1,17 +1,26 @@
 <?php
-	$cle = null;
+$cle = null;
 	$courriel = test_input($_POST['couriel']);
 	$courriel=filter_var($courriel, FILTER_SANITIZE_EMAIL);
 	if (filter_var($courriel, FILTER_VALIDATE_EMAIL) === false) {
 	   echo("Ce n'est pas une adresse de courriel valide.");
 	   $courriel = null;
 	}
+	$cookie_name = "authentification";
+	$cookie_value = $courriel;
+	setcookie($cookie_name, $cookie_value, time() + (86400 * 0.25), "/"); // 86400 = 1 day
+	
 	$mdp = test_input($_POST['mPasse']);
 	$mdp = filter_var($mdp, FILTER_SANITIZE_STRING);
 	if (isset($_POST['cleAdmin'])) {
 		$cle = test_input($_POST['cleAdmin']);
 		$cle = filter_var($cle, FILTER_SANITIZE_STRING);
 	}
+	header('Location: ../index.php');//
+?>
+
+
+<?php
 
 function test_input($data) {
   $data = trim($data);
@@ -22,6 +31,13 @@ function test_input($data) {
 
 echo $courriel."<br>";
 echo $mdp."<br>";
+
+if(!isset($_COOKIE[$cookie_name])) {
+    echo "Cookie named '" . $cookie_name . "' is not set!";
+} else {
+    echo "Cookie '" . $cookie_name . "' is set!<br>";
+    echo "Value is: " . $_COOKIE[$cookie_name];
+}
 
 //deschid fisierul pe care l-am umplut la collecteClients.php si vad daca coincid datele
 

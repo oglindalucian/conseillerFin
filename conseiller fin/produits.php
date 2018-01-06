@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,6 +40,7 @@ FROM produits p, institutions i, risque r
 WHERE i.id_institution = p.id_institution AND
 r.id_risque = p.id_risque
 ORDER BY nomProduit, nomInstitution');
+
 ?>
 <table border=1 style="border-collapse:collapse; margin:2% auto;">;
 <tr><th>Nom produit</th><th>Institution financiere</th><th>Prix</th><th>Risque</th><th>Acheter</th></tr>;
@@ -43,7 +48,11 @@ ORDER BY nomProduit, nomInstitution');
 <?php
 while ($donnees = $reponse->fetch())
 {
-	echo '<tr><td>'.$donnees['nomProduit']. '</td><td>'.$donnees['nomInstitution']. '</td><td>$'.$donnees['prix_arrondi']. '</td><td>'.$donnees['explicationRisque']. '</td><td><a href="acheter.php">Acheter</a></td></tr>';
+	$_SESSION["produitSelectionne"] = $donnees['nomProduit'];
+	$_SESSION["nomInstitutionProduit"] = $donnees['nomInstitution'];
+	$_SESSION["prixProduit"] = $donnees['prix_arrondi'];
+	$_SESSION["risqueProduit"] = $donnees['explicationRisque'];
+	echo '<tr><td>'.$donnees['nomProduit']. '</td><td>'.$donnees['nomInstitution']. '</td><td>$'.$donnees['prix_arrondi']. '</td><td>'.$donnees['explicationRisque']. '</td><td><a href="acheter.php?nom='.$donnees['nomProduit'].'&institution='.$donnees['nomInstitution'].'&prix='.$donnees['prix_arrondi'].'&risque='.$donnees['explicationRisque'].'">Acheter</a></td></tr>';
 }
 
 $reponse->closeCursor();
