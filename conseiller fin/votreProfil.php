@@ -1,11 +1,7 @@
-<?php
-//session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Produits</title>
+<title>Profil investisseur</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,15 +15,39 @@
 </head>
 <body>
   <?php include 'menu.php';?>	
-<?php
- echo "<br><br><br><br><span id=\"Haut\"></span>";
- echo '<h1 align="center">Liste des produits disponibles actuellement</h1><br>';
- ?>
-<?php include 'chercherProduit.php';?>
-
-<?php include 'filtre.php';?>
 
 <?php
+	
+	$age = $profession = $risque = $profil = "";
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		$age = $_POST["age"];
+		$profession = $_POST["profession"];
+		$risque = $_POST["risque"];
+	  }  
+ 
+	if($age<34 || $risque=="2") {
+		$profil = "Investisseur agréssif";
+	}
+	else if(($age>=34 && $age<46)|| $risque=="3") {
+		$profil = "Investisseur modéré";
+	}
+	else if(($age>=46 && $age<61)|| $risque=="4") {
+		$profil = "Investisseur modéré";
+	}
+	else if($risque=="1") {
+		$profil = "Investisseur très agréssif";
+	}
+	else if($risque=="5") {
+		$profil = "Investisseur très modéré";
+	}
+		
+	echo '<br><br><br>';	
+	echo '<p align="center">Vous avez indiqué les détails suivants concernant votre profil d\'investisseur: age:'.$age.', profession: '.$profession.', risque: '.$risque.'.</p><br>';
+		
+	echo "<h4 align=\"center\">Votre profil: ".$profil."</h4>";
+	echo "<h2 align=\"center\"><b><i>Liste des produits qui pourraient vous intéresser:</i></b></h2>";
+	
 	try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -42,10 +62,15 @@ $reponse = $bdd->query('SELECT p.nom AS nomProduit, i.id_institution AS IdInstit
 AS prix_arrondi, r.id_risque AS IdRisque, r.explication AS explicationRisque
 FROM produits p, institutions i, risque r 
 WHERE i.id_institution = p.id_institution AND
-r.id_risque = p.id_risque
+r.id_risque = p.id_risque AND
+r.id_risque = "'.$risque.'"
 ORDER BY nomProduit, nomInstitution');
 
 ?>
+<?php //include 'chercherProduit.php';?>
+
+<?php //include 'filtre.php';?>
+
 <table border=1>
 <tr><th>Numéro</th><th>Nom produit</th><th>Institution financiere</th><th>Prix</th><th>Risque</th><th>Acheter</th></tr>
 
@@ -71,10 +96,9 @@ while ($donnees = $reponse->fetch())
 
 $reponse->closeCursor();
 echo "</table><br><br><br><br>";
-//$ok = true;
+
 ?>	
 
-<?php  //if($ok===true) 
-	include 'footer.php';?>
+<?php  include 'footer.php';?>
 </body>
 </html>

@@ -1,7 +1,3 @@
-<?php
-//session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -28,7 +24,8 @@
 <?php include 'filtre.php';?>
 
 <?php
-	try
+
+try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 	
@@ -43,9 +40,10 @@ AS prix_arrondi, r.id_risque AS IdRisque, r.explication AS explicationRisque
 FROM produits p, institutions i, risque r 
 WHERE i.id_institution = p.id_institution AND
 r.id_risque = p.id_risque
-ORDER BY nomProduit, nomInstitution');
+ORDER BY i.nom');
 
 ?>
+
 <table border=1>
 <tr><th>Numéro</th><th>Nom produit</th><th>Institution financiere</th><th>Prix</th><th>Risque</th><th>Acheter</th></tr>
 

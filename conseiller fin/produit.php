@@ -23,7 +23,19 @@ $produitRecherche = $_POST['produitRecherche'];
 echo '<span id="termes"></span>';
 echo '<span id="Haut"></span>';
 echo "<br><br><br><br><h2 align=\"center\">Vous cherchez le produit <b>".$produitRecherche.". </b></h2>
-<p align=\"center\"><i>Voici les résultats de la recherche:</i></p><br><br>";
+<p align=\"center\"><i>Voici les résultats de la recherche:</i></p>";
+
+// echo "<div class=\"dropdown\" id=\"premier\">\n"; 
+// echo "    <button class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">Filtrez votre recherche:\n"; 
+// echo "    <span class=\"caret\"></span></button>\n"; 
+// echo "    <ul class=\"dropdown-menu\">\n"; 
+// echo "      <li><a href=\"prix.php\">Prix</a></li>\n"; 
+// echo "      <li><a href=\"typeProduit.php\">Type produit</a></li>\n"; 
+// echo "      <li><a href=\"institution.php\">Institution</a></li>\n";
+// echo "      <li><a href=\"risque.php\">Risque</a></li>\n"; 
+// echo "    </ul>\n"; 
+// echo "  </div>\n"; 
+// echo "</div>\n";
 
 try
 {
@@ -42,6 +54,7 @@ r.id_risque = p.id_risque AND
 p.nom LIKE "%'.$produitRecherche.'%"
 ORDER BY p.nom, i.nom');
 ?>
+
 <table border=1>
 <tr><th>Numéro</th><th>Nom produit</th><th>Institution financiere</th><th>Prix</th><th>Risque</th><th>Acheter</th></tr>
 
@@ -66,8 +79,12 @@ while ($donnees = $reponse->fetch())
 }
 
 $reponse->closeCursor();
-echo "</table><br><br><br><br>";
-//$ok = true;
+echo "</table><br>";
+if($i===0) {
+	echo "<p align=\"center\">Aucun résultat ne correspond à votre recherche.</p>";
+	echo '<p align="center"><a href="produits.php">Réessayez</a></p>';
+}
+echo "<br><br><br><br>";
 ?>	
 
 <?php  //if($ok===true) 

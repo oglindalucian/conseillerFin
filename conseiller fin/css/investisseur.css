@@ -1,6 +1,7 @@
 body {
 	/* background-image: url("../images/bg.jpg"); */
 	/* word-wrap: break-word; */
+	background-color: #ebebe0;
 }
 
 
@@ -55,7 +56,7 @@ body {
 }
 
 table {
-	width: 90%;
+	width: 80%;
 	border-collapse:collapse; 
 	margin:2% auto;
 }
@@ -70,4 +71,25 @@ table tr:nth-child(even){background-color: #f2f2f2;}
 
 table tr:hover {background-color: #ddd;}
 
-/*  */
+/* unvisited link */
+a:link {
+   	color: #696969;
+	text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #4d4d33;
+	text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+     color: #c2c2a3;
+}
+
+/* selected link */
+a:active {
+    color: #999966;
+	text-decoration: none;
+}

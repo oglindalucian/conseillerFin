@@ -81,13 +81,12 @@
 		<br>
 		<div id="etabProfil">
 			<h4>Établissez votre profil d'investisseur</h4>
-			<form id="votreProfil" name="votreProfil" action="serveur/votreProfil.php" method="post">
-			<table align="center">
+			<form id="votreProfil" name="votreProfil" action="votreProfil.php" method="post">
+			<table class="table-responsive" align="center" style="width:35%;">
 					<tr>
 						<td><label for="age">Age</label></td>
 						<td><select id="age" name="age"></select></td>
 					</tr>
-					<tr><td><br></td><td></td></tr>
 					<tr>
 						<td><label for="profession">Profession</label></td>
 						<td>
@@ -100,7 +99,6 @@
 							</select>
 						</td>
 					</tr>
-					<tr><td><br></td><td></td></tr>
 					<tr>
 						<td><label for="risque">Aversion au risque &nbsp;&nbsp;&nbsp;</label></td>
 						<td>
@@ -113,12 +111,10 @@
 							</select>
 						</td>
 					</tr>
-					<tr><td><br></td><td></td></tr>
 					<tr>
 						<td><input type="submit" class="btn btn-default"/></td>
 						<td><input type="reset" class="btn btn-default"/></td>
 					</tr>
-					<tr><td><br></td><td></td></tr>
 				</table>
 				
 			</form>
