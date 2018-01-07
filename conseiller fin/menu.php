@@ -19,19 +19,19 @@ echo "      <ul class=\"nav navbar-nav navbar-right\">\n";
 echo "        <li><a href=\"index.php\"><span class=\"glyphicon glyphicon-home\"></span></a></li>\n"; 
 echo "		<li class=\"dropdown\">\n"; 
 if(!isset($_COOKIE["authentification"])) {
-echo "          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"glyphicon glyphicon-user\"></span>CONNEXION\n"; 
-echo "          <span class=\"caret\"></span></a>\n"; 
-echo "          <ul class=\"dropdown-menu\">\n"; 
-echo "            <li><a href=\"connexion.html\">Connexion</a></li>\n"; 
-echo "            <li><a href=\"inscription.html\">Inscription</a></li>\n"; 
-echo "          </ul>\n"; 
+	echo "          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"glyphicon glyphicon-user\"></span>CONNEXION\n"; 
+	echo "          <span class=\"caret\"></span></a>\n"; 
+	echo "          <ul class=\"dropdown-menu\">\n"; 
+	echo "            <li><a href=\"connexion.html\">Connexion</a></li>\n"; 
+	echo "            <li><a href=\"inscription.html\">Inscription</a></li>\n"; 
+	echo "          </ul>\n"; 
 }  else {
-echo "          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"glyphicon glyphicon-user\"></span>".$_COOKIE["NomUtil"]."\n"; 
-echo "          <span class=\"caret\"></span></a>\n"; 
-echo "          <ul class=\"dropdown-menu\">\n"; 
-echo "            <li><a href=\"panier.php\">Mon panier</a></li>\n"; 
-echo "            <li><a href=\"deconnexion.php\">Déconnexion</a></li>\n"; 
-echo "          </ul>\n"; 	
+	echo "          <a class=\"dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\"><span class=\"glyphicon glyphicon-user\"></span>".$_COOKIE["NomUtil"]."\n"; 
+	echo "          <span class=\"caret\"></span></a>\n"; 
+	echo "          <ul class=\"dropdown-menu\">\n"; 
+	echo "            <li><a href=\"panier.php\">Mon panier</a></li>\n"; 
+	echo "            <li><a href=\"deconnexion.php\">Déconnexion</a></li>\n"; 
+	echo "          </ul>\n"; 	
 }
 echo "        </li>\n"; 
 echo "		<li class=\"dropdown\">\n"; 

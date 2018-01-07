@@ -1,42 +1,33 @@
-<?php
-//session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>Produits</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script language="javascript" src="js/global.js"></script>
-  <link rel="stylesheet" href="css/investisseur.css" type="text/css" />
-  <link rel="stylesheet" href="css/accueil.css" type="text/css" />
+		<meta charset="UTF-8">
+		<title>Recherche produits financiers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <script language="javascript" src="js/global.js"></script>
+	  <link rel="stylesheet" href="css/investisseur.css" type="text/css" />
+	  <link rel="stylesheet" href="css/accueil.css" type="text/css" />
 </head>
-<body>
-  <?php include 'menu.php';?>	
+<body data-spy="scroll" data-target=".navbar" data-offset="50">	
+  
+<?php include 'menu.php';?>	 
 
 <?php
 
-echo "<br><br><br><br><span id=\"Haut\"></span>";
-echo '<h1 align="center">Liste des produits disponibles actuellement</h1><br>';
-echo "		<div class=\"jumbotron text-center\">\n"; 
-echo "			<p>Recherchez dans la liste des produits:</p> \n"; 
-echo "			<form class=\"form-inline\" action=\"produit.php\" method=\"post\">\n"; 
-echo "				<input type=\"search\" size=\"50\" name=\"produitRecherche\">\n"; 
-echo "				<input type=\"submit\" class=\"btn btn-default\" value=\"Recherchez\">			\n"; 
-echo "			</form>\n"; 
-echo "		</div>\n"; 
-echo "	<br><br>\n";
+$produitRecherche = $_POST['produitRecherche'];
+echo '<span id="termes"></span>';
+echo '<span id="Haut"></span>';
+echo "<br><br><br><br><h2 align=\"center\">Vous cherchez le produit <b>".$produitRecherche.". </b></h2>
+<p align=\"center\"><i>Voici les résultats de la recherche:</i></p><br><br>";
 
-	try
+try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-	
 }
 catch(Exception $e)
 {
@@ -47,9 +38,9 @@ $reponse = $bdd->query('SELECT p.nom AS nomProduit, i.id_institution AS IdInstit
 AS prix_arrondi, r.id_risque AS IdRisque, r.explication AS explicationRisque
 FROM produits p, institutions i, risque r 
 WHERE i.id_institution = p.id_institution AND
-r.id_risque = p.id_risque
-ORDER BY nomProduit, nomInstitution');
-
+r.id_risque = p.id_risque AND
+p.nom LIKE "%'.$produitRecherche.'%"
+ORDER BY p.nom, i.nom');
 ?>
 <table border=1>
 <tr><th>Numéro</th><th>Nom produit</th><th>Institution financiere</th><th>Prix</th><th>Risque</th><th>Acheter</th></tr>

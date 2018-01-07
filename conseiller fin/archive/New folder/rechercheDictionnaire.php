@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
 		<meta charset="UTF-8">
-		<title>Dictionnaire</title>
-		 <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Recherche termes financiers</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
@@ -15,22 +15,16 @@
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">	
   
-<?php include 'menu.php';?>	  
+<?php include 'menu.php';?>	 
 
 <?php
 
-echo "<br><br><br><br><span id=\"Haut\"></span>\n"; 
-echo "		<div class=\"jumbotron text-center\">\n"; 
-echo "			<p>Recherchez dans le dictionnaire:</p> \n"; 
-echo "			<form class=\"form-inline\" action=\"recherche.php\" method=\"post\">\n"; 
-echo "				<input type=\"search\" size=\"50\" name=\"votreRecherche\">\n"; 
-echo "				<input type=\"submit\" class=\"btn btn-default\" value=\"Recherchez\">			\n"; 
-echo "			</form>\n"; 
-echo "		</div>\n"; 
-echo "<span id=\"termes\"></span>";
-echo "	<br><br>\n";
+$termeRecherche = $_POST['votreRecherche'];
 
-	try
+echo "<p>Vous cherchez le terme <b>".$termeRecherche.". </b></p>";
+echo '<span id="termes"></span>';
+echo '<span id="Haut"></span>';
+try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 }
@@ -39,19 +33,7 @@ catch(Exception $e)
         die('Erreur : '.$e->getMessage());
 }
 
-$reponse = $bdd->query('SELECT terme FROM dictionnaire');
-$i = 0;
-while ($donnees = $reponse->fetch())
-{
-	$i++;
-	echo '<p style="margin-left:5%;"><a href="#'.$i.'">'.$donnees['terme'] . '</a></p>';
-}
-
-$reponse->closeCursor();
-	
-echo "<br><br>\n"; 
-
-$reponse = $bdd->query('SELECT * FROM dictionnaire WHERE 1');
+$reponse = $bdd->query('SELECT * FROM dictionnaire WHERE terme LIKE "%'.$termeRecherche.'%"');
 $j = 0;
 while ($donnees = $reponse->fetch())
 {
@@ -63,10 +45,14 @@ while ($donnees = $reponse->fetch())
 	echo "<dd>".$donnees['definition']."</dd><br>";
 }
 $reponse->closeCursor();
+if($j===0) {
+	echo "<p>Aucun résultat ne correspond à votre recherche.</p>";
+	echo '<p><a href="dictionnaire.php">Réessayez</a></p>';
+}
+
 ?>
 
 <?php include 'footer.php';?>
-
 
 </body>
 </html>

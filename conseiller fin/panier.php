@@ -20,7 +20,10 @@
 
 echo "<br><br><br><br><span id=\"Haut\"></span>";
 echo '<h1 align="center">Liste des produits que vous avez commandés:</h1>';
-$ok = false;
+//$idUtilisateur = null;
+if(isset($_COOKIE["IdUtil"])) {
+	$idUtilisateur = $_COOKIE["IdUtil"];
+}
 	try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -32,9 +35,10 @@ catch(Exception $e)
 }
 
 $reponse = $bdd->query('SELECT p.nom AS nomProduit, i.nom AS nomInstitution, ROUND(p.prix,2) AS prix_arrondi, r.explication AS explicationRisque, COUNT(*) AS nombre
-FROM produitsachetes p, institutions i, risque r 
+FROM produitsachetes p, institutions i, risque r, utilisateurs u 
 WHERE i.id_institution = p.id_institution AND
-r.id_risque = p.id_risque
+r.id_risque = p.id_risque AND
+u.id_utilisateur = '.$idUtilisateur.'
 GROUP BY nomProduit, nomInstitution, prix_arrondi, explicationRisque
 ORDER BY nomProduit, nomInstitution');
 
@@ -51,9 +55,9 @@ while ($donnees = $reponse->fetch())
 }
 $reponse->closeCursor();
 echo "</table><br><br><br><br>";
-$ok = true;
+
 ?>	
 
-<?php  if($ok===true) include 'footer.php';?>
+<?php  include 'footer.php';?>
 </body>
 </html>
