@@ -1,0 +1,4 @@
+<?php
+$bdd = new PDO('mysql:host=sql211.byethost17.com;dbname=b17_21371190_conseiller;charset=utf8', 'b17_21371190', 'Opar91785TQC', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+
+?>
