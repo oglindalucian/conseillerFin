@@ -1,7 +1,4 @@
-<?php
-	//session_start();
-	//header('Location: produits.php');
-?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,42 +15,38 @@
   <link rel="stylesheet" href="css/accueil.css" type="text/css" />
 </head>
 <body onLoad="creerListesProduits();">
-<a href="index.php">Accueil</a>
+<?php include 'menu.php';?>	
+<span id="Haut"></span>
+
+<br><br>
 <?php
 if(!isset($_COOKIE['authentification'])) {
     echo "<a href=\"connexion.html\">Il faut se connecter d'abord pour pouvoir ajouter des produits à son panier.</a>";
 } else {
    $produit = $institution = $prix = $risque = $idRisque = $idBank = $idUtilisateur = null;
-   echo "<br><br><br><div class=\"tabInscription\">";
+   echo "<div class=\"tabInscription\">";
 	   $produit = test_input($_GET['nom']);
-	   echo "<b>".$produit."</b><br>";
+	   echo "<h2>Détails commande</h2>";
+	   echo "<p>Vous avez choisi le produit suivant: <b>".$produit."</b>.</p>";
 	   $institution = test_input($_GET['institution']);
-	   echo "<i>".$institution."</i><br>";
+	   echo "<p>Ce produit est offert par: <i>".$institution."</i>.</p>";
 	   $prix = test_input($_GET['prix']);
-	   echo $prix."<br>";
+	   echo "<p>Le prix d'un contract est de: ".$prix."$.</p>";
 	   $risque = test_input($_GET['risque']);
-	   echo $risque."<br>";
+	   echo "<p>Dégré de risque: ".$risque.".</p>";
 	   $idRisque = test_input($_GET['IdRisk']);
-	   echo "IdRisk:".$idRisque."<br>";
+	   //echo "IdRisk:".$idRisque."<br>";
 	   $idRisque = intval($idRisque);
 	   $idBank = test_input($_GET['IdBank']);
-	   echo "IdBank:".$idBank."<br>";
+	   //echo "IdBank:".$idBank."<br>";
 	   $idBank = intval($idBank);
 	   $idUtilisateur = $_COOKIE["IdUtil"];
-	   echo "IdUtilisatuer: ".$idUtilisateur."<br>";
+	   //echo "IdUtilisatuer: ".$idUtilisateur."<br>";
 	   $idUtilisateur = intval($idUtilisateur);
-	   echo "<form action=\"\" method=\"POST\" id=\"ajouterAuPanier\" name=\"ajouterAuPanier\">
-	   Produit:<input type=\"text\" value=\"".$produit."\"><br>
-	   Nom institution:<input type=\"text\" value=\"".$institution."\"><br>
-	   Prix:<input type=\"text\" value=\"".$prix."\"><br>
-	   Type de risque:<input type=\"text\" value=\"".$risque."\"><br>
-	   Id risque:<input type=\"text\" value=\"".$idRisque."\"><br>
-	   Id Institution:<input type=\"text\" value=\"".$idBank."\"><br>
-	   Id Utilisateur:<input type=\"text\" value=\"".$idUtilisateur."\"><br>";
-	   echo 'Quantité:<select id="quantiteProduits" name="quantiteProduits"></select><br>';
-	   //echo '<input type="text" name="nb">';
-	   echo "<input type=\"submit\" id=\"envoi\" value=\"Ajouter au panier\" name=\"nombreProduits\"><br>
-	   <input type=\"reset\" value=\"Recommencer\">
+	   echo "<form action=\"\" method=\"POST\" id=\"ajouterAuPanier\" name=\"ajouterAuPanier\">";
+	   echo 'Quantité:<br><br><select id="quantiteProduits" name="quantiteProduits"></select><br><br><br>';
+	   echo "<input type=\"submit\" id=\"envoi\" value=\"Ajouter au panier\" name=\"nombreProduits\">
+	   &nbsp;&nbsp;&nbsp;<button><a href=\"produits.php\">Annuler</a></button>
 	   </form>";
    echo "</div><br><br>";
     $quantite = 0;
@@ -61,7 +54,8 @@ if(!isset($_COOKIE['authentification'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if(!empty($_POST['nombreProduits'])) {
 		$quantite = intval($_POST['quantiteProduits']);
-		echo "Vous avez commande: ".$quantite;
+		echo "Vous avez commandé: <b>".$quantite. "</b> contracts de <b>".$produit."</b>.<br>";
+		echo "Accédez à votre <a href=\"panier.php\">panier</a> pour le paiement.";
     }
 	try
 	{
@@ -94,6 +88,8 @@ function test_input($data) {
   return $data;
 }
 ?>
+<br><br><br><br><br><br>
 
+<?php include 'footer.php';?>
 </body>
 </html>
