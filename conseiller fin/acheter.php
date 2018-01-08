@@ -52,16 +52,17 @@ if(!isset($_COOKIE['authentification'])) {
 	   Id Utilisateur:<input type=\"text\" value=\"".$idUtilisateur."\"><br>";
 	   echo 'Quantité:<select id="quantiteProduits" name="quantiteProduits"></select><br>';
 	   //echo '<input type="text" name="nb">';
-	   echo "<input type=\"submit\" id=\"envoi\" value=\"Ajouter au panier\"><br>
+	   echo "<input type=\"submit\" id=\"envoi\" value=\"Ajouter au panier\" name=\"nombreProduits\"><br>
 	   <input type=\"reset\" value=\"Recommencer\">
 	   </form>";
    echo "</div><br><br>";
-    $quantite = 1;
+    $quantite = 0;
 	$i = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		//$quantite = intval($_POST['quantiteProduits']);
+	if(!empty($_POST['nombreProduits'])) {
+		$quantite = intval($_POST['quantiteProduits']);
 		echo "Vous avez commande: ".$quantite;
-    
+    }
 	try
 	{
 		$bdd = new PDO('mysql:host=localhost;dbname=conseiller;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));

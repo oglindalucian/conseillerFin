@@ -22,7 +22,8 @@ echo "<br><br><br><br><span id=\"Haut\"></span>";
 echo '<h1 align="center">Liste des produits que vous avez commandés:</h1>';
 //$idUtilisateur = null;
 if(isset($_COOKIE["IdUtil"])) {
-	$idUtilisateur = $_COOKIE["IdUtil"];
+	$idUtilisateur = intval($_COOKIE["IdUtil"]);
+	//echo $idUtilisateur;
 }
 	try
 {
@@ -38,7 +39,8 @@ $reponse = $bdd->query('SELECT p.nom AS nomProduit, i.nom AS nomInstitution, ROU
 FROM produitsachetes p, institutions i, risque r, utilisateurs u 
 WHERE i.id_institution = p.id_institution AND
 r.id_risque = p.id_risque AND
-u.id_utilisateur = '.$idUtilisateur.'
+u.id_utilisateur = '.$idUtilisateur.' AND
+u.id_utilisateur = P.id_utilisateur
 GROUP BY nomProduit, nomInstitution, prix_arrondi, explicationRisque
 ORDER BY nomProduit, nomInstitution');
 

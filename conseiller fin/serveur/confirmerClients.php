@@ -56,7 +56,8 @@ catch(Exception $e)
 $reponse = $bdd->prepare("SELECT id_utilisateur, courriel, mdp, nom FROM utilisateurs WHERE courriel = ?");	
 $reponse->execute(array($courriel));
 $donnees = $reponse->fetch(); 
-$leId = $leNom = "";
+$leId = 0;
+$leNom = "";
 
 if($mdp===$donnees['mdp']) {
 	$ok = true;
