@@ -56,7 +56,7 @@ while ($donnees = $reponse->fetch())
 	.$donnees['prix_arrondi'].'</td><td>'.$donnees['explicationRisque'].'</td><td>'.$donnees['nombre'].'</td></tr>';	
 }
 $reponse->closeCursor();
-echo "</table><br><br><br><br>";
+echo "</table><br><br><br><br><br><br><br><br><br><br><br><br>";
 
 ?>	
 

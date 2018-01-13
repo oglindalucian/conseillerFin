@@ -56,7 +56,7 @@ while ($donnees = $reponse->fetch())
 {
 	$i++;
 	if(!isset($_COOKIE['authentification'])) {
-		$lien = "<a href=\"connexion.html\">Connexion</a>";
+		$lien = "<a href=\"connexion.php\">Acheter</a>";
 		echo '<tr><td>'.$i.'</td><td>'.$donnees['nomProduit']. '</td><td>'.$donnees['nomInstitution'].'</td><td>$'
 		.$donnees['prix_arrondi'].'</td><td>'.$donnees['explicationRisque'].'</td><td>'.$lien.'</td></tr>';
 	} else {

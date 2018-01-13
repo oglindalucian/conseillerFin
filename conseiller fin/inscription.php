@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+	<head>
+		<title>Inscription</title>
+		<meta charset="utf-8">
+		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+		  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		  <script language="javascript" src="js/global.js"></script>
+		  <link rel="stylesheet" href="css/investisseur.css" type="text/css" />
+		  <link rel="stylesheet" href="css/accueil.css" type="text/css" />
+	</head>
+	<body>
+	<?php include 'menu.php';?>
+		<br><span id="Haut"></span>
+		<p class="tabInscription"><span id="err" class="erreur"></span></p>
+		<hr>
+		<br>
+		<form action="serveur/collecteClients.php" method="POST" onSubmit="return validerInscription();">  
+		  <div class="container-fluid" class="tabInscription">
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="nom">Nom: </label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="text" id="nom" name="nom" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="nomErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="email">Courriel:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="text" id="email" name="email" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="courrielErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="mdp">Mot de passe:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="password" id="mdp" name="mdp" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="mdpErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="website">Votre site:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="text" id="website" name="website" value="">
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="siteErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>		  
+				    <div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="comment">Commentaire:&nbsp; &nbsp;&nbsp;</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<textarea id="comment" name="comment" rows="5" cols="40"></textarea>
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>		
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+									<label for="genre">Genre:</label>
+								</div>
+								<div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+									<input type="radio" name="genre" value="femme"> Femme&nbsp;&nbsp;
+									<input type="radio" name="genre" value="homme"> Homme
+								</div>
+								<div class="col-xs-12 col-sm-7 col-md-7 col-lg-8">
+									<span id="genreErr" class="erreur"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>	
+					<div class="row">
+						<div class="col-xs-12 col-md-11 col-lg-10">
+							<div class="row">
+								<div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+									<input type="submit" name="submit" value="Envoyer">
+								</div>
+								<div class="col-xs-9 col-sm-3 col-md-3 col-lg-2">
+									<input type="reset" id="recommencer" value="Recommencer" onClick="resseterErr();">
+								</div>
+								<div class="col-xs-0 col-sm-7 col-md-7 col-lg-8">
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>			
+				
+		</form>
+		
+	</body>
+</html>
