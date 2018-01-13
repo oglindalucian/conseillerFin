@@ -1,4 +1,6 @@
-
+<?php
+header('Location: ../connexion.html');
+?>
 
 <?php
 

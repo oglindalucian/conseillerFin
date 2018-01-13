@@ -129,42 +129,60 @@
       <p>Des questions? N'hesitez pas!</p>
       <p><span class="glyphicon glyphicon-map-marker"></span>Montréal, Canada</p>
       <p><span class="glyphicon glyphicon-phone"></span>Téléphone: +00 1515151515</p>
-      <p><span class="glyphicon glyphicon-envelope"></span>Courriel: mail@mail.com</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Courriel: mail@mail.ca </p>
     </div>
+	<form action="serveur/messagesUtilisateurs.php" method="post" onSubmit="return validerMsgUtilisateur();">
     <div class="col-md-8">
       <div class="row">
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+          <input class="form-control" id="name" name="name" placeholder="Nom" type="text" required>
         </div>
         <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+          <input class="form-control" id="email" name="email" placeholder="Courriel" type="text" required>
         </div>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Commentaire" rows="5"></textarea>
       <br>
       <div class="row">
         <div class="col-md-12 form-group">
           <button class="btn pull-right" type="submit">Envoyer</button>
         </div>
       </div>
-    </div>
+	  <div class="row">
+        <div class="col-md-12 form-group">
+          <span id="nameError" class="erreur"></span><br>
+		  <span id="emailError" class="erreur"></span><br>
+		  <span id="msgError" class="erreur"></span>
+		</div>
+      </div>
+    </div></form>
   </div>
   <br>
   
 </div>
-
+<form action="serveur/email.php" method="post">
+	<input type="submit">
+</form>
 <!-- Add Google Maps -->
 <div id="googleMap"></div>
+
 <script>
 function myMap() {
-var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-var mapProp = {center:myCenter, zoom:12, scrollwheel:false, draggable:false, mapTypeId:google.maps.MapTypeId.ROADMAP};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var marker = new google.maps.Marker({position:myCenter});
-marker.setMap(map);
+  var myCenter = new google.maps.LatLng(45.5088400,-73.5878100);
+  var mapCanvas = document.getElementById("googleMap");
+  var mapOptions = {center: myCenter, zoom: 12};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter, animation: google.maps.Animation.BOUNCE});
+  marker.setMap(map);
+  var infowindow = new google.maps.InfoWindow({
+    content: "Notre office: 123 Boul. Montreal O <br>Telephone: 514 000 1111<br>Site web: <a href=\"http://finadvisor.byethost17.com\">http://finadvisor.byethost17.com</a>"
+
+  });
+  infowindow.open(map,marker);
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTJ0MfOLctuIdVii6C-9X63MnXxznLoXw&callback=myMap"></script>
 <!--
 To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp

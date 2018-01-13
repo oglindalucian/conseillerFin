@@ -290,6 +290,22 @@ function validerConnexion() {
 	else {error = "Completez tous les champs!"; document.getElementById("error").innerHTML = error; return false;}	
 }
 
+function validerMsgUtilisateur() {
+	var error = "";
+	var nom=document.getElementById('name').value;
+	var courriel=document.getElementById('email').value;
+	var emailRegExp=new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$");
+	if(courriel!="" && nom!="") {
+		if(!VerifierInput('name', 'nameError')) return false;
+		if(!VerifierInput('email', "emailError")) return false;		
+		else {
+			alert("Votre message a été envoyé.");
+			return true;
+		}
+	}
+	else {error = "Completez tous les champs!"; document.getElementById("msgError").innerHTML = error; return false;}	
+}
+
 function resseterError() {
 	document.getElementById("error").innerHTML = "";
 	document.getElementById("courrielError").innerHTML = "";
@@ -312,6 +328,10 @@ function VerifierInput(id, idErr) {
 	var aVerifier = document.getElementById(id).value;
 	switch (id) {
     case 'nom':
+        error = "Le nom doit contenir seulement des lettres et minimum 2 lettres.";
+		regExpression = new RegExp("^[a-zA-Z]{2,20}$");
+		break;
+	case 'name':
         error = "Le nom doit contenir seulement des lettres et minimum 2 lettres.";
 		regExpression = new RegExp("^[a-zA-Z]{2,20}$");
 		break;
